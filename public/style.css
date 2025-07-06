@@ -1,14 +1,14 @@
 /* style.css */
 
-/* กำหนดพื้นฐานสำหรับทั้งหน้าเว็บ */
+/* Base styles for the entire page */
 body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* ทำให้ body สูงเต็มหน้าจอ */
+    min-height: 100vh; /* Make body full viewport height */
     margin: 0;
-    background-color: #f4f7f6; /* สีพื้นหลังอ่อนๆ */
+    background-color: #f4f7f6; /* Light background color */
     color: #333;
 }
 
@@ -18,12 +18,12 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 500px; /* กำหนดความกว้างสูงสุดของแอป */
+    max-width: 500px; /* Maximum width for the app */
     text-align: center;
-    box-sizing: border-box; /* รวม padding/border ในความกว้าง */
+    box-sizing: border-box; /* Include padding/border in width */
 }
 
-/* สไตล์สำหรับส่วน Login */
+/* Styles for the Login section */
 #login-section h2 {
     color: #007bff;
     margin-bottom: 25px;
@@ -32,7 +32,7 @@ body {
 #login-form {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* ระยะห่างระหว่างฟอร์ม */
+    gap: 15px; /* Spacing between form elements */
     margin-bottom: 20px;
 }
 
@@ -47,7 +47,7 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
-    width: calc(100% - 24px); /* ความกว้างเต็มที่ ลบ padding */
+    width: calc(100% - 24px); /* Full width minus padding */
 }
 
 #login-form button[type="submit"] {
@@ -66,13 +66,13 @@ body {
 }
 
 .error-message {
-    color: #dc3545; /* สีแดงสำหรับข้อความ Error */
+    color: #dc3545; /* Red color for error messages */
     margin-top: 10px;
     font-size: 0.9rem;
-    height: 1.2em; /* กันไม่ให้ layout กระโดดเมื่อมีข้อความ Error */
+    height: 1.2em; /* Prevent layout jump when error message appears */
 }
 
-/* สไตล์สำหรับส่วนปฏิทิน */
+/* Styles for the Calendar section */
 #calendar-section {
     padding: 20px 0;
 }
@@ -106,7 +106,7 @@ body {
 
 .calendar-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr); /* 7 คอลัมน์สำหรับวันในสัปดาห์ */
+    grid-template-columns: repeat(7, 1fr); /* 7 columns for days of the week */
     gap: 5px;
     margin-bottom: 20px;
 }
@@ -117,14 +117,15 @@ body {
     background-color: #e9ecef;
     border-radius: 5px;
     font-size: 0.9rem;
+    text-align: center; /* Center the day names */
 }
 
 .day-cell {
-    /* สไตล์เบื้องต้นของแต่ละช่องวันในปฏิทิน */
+    /* Basic styles for each day cell in the calendar */
     padding: 15px 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    min-height: 80px; /* กำหนดความสูงขั้นต่ำเพื่อรองรับเนื้อหา */
+    min-height: 80px; /* Minimum height to accommodate content */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -133,12 +134,23 @@ body {
     transition: background-color 0.2s ease, border-color 0.2s ease;
     font-size: 1rem;
     position: relative;
-    overflow: hidden; /* ซ่อนเนื้อหาที่เกิน */
+    overflow: hidden; /* Hide overflowing content */
 }
 
 .day-cell:hover {
     background-color: #e0f7fa;
     border-color: #007bff;
+}
+
+/* Styles for specific days of the week */
+.day-cell.sunday {
+    background-color: #ffe0e0; /* Light red for Sunday */
+    color: #dc3545; /* Darker red text */
+}
+
+.day-cell.saturday {
+    background-color: #e0ffe0; /* Light green for Saturday */
+    color: #28a745; /* Darker green text */
 }
 
 .day-number {
@@ -155,12 +167,12 @@ body {
     font-size: 0.8rem;
     color: #007bff;
     text-align: center;
-    word-break: break-word; /* ให้คำที่ยาวขึ้นบรรทัดใหม่ */
+    word-break: break-word; /* Wrap long words */
     padding: 0 5px;
-    max-height: 40px; /* จำกัดความสูงของโน้ตที่แสดงในช่องวัน */
-    overflow: hidden; /* ซ่อนส่วนเกินถ้าโน้ตยาวไป */
-    text-overflow: ellipsis; /* แสดง ... ถ้าข้อความยาวเกิน */
-    white-space: nowrap; /* ป้องกันการขึ้นบรรทัดใหม่โดยไม่จำเป็น */
+    max-height: 40px; /* Limit height of note displayed in day cell */
+    overflow: hidden; /* Hide overflow if note is too long */
+    text-overflow: ellipsis; /* Show ... if text overflows */
+    white-space: nowrap; /* Prevent unnecessary line breaks */
 }
 
 .empty-day {
@@ -190,17 +202,17 @@ body {
     background-color: #c82333;
 }
 
-/* สไตล์สำหรับ Pop-up (Modal) */
+/* Styles for Pop-up (Modal) */
 .modal {
-    display: none; /* ซ่อนโดยค่าเริ่มต้น */
-    position: fixed; /* อยู่ด้านบนของเนื้อหาอื่น */
-    z-index: 1; /* อยู่ด้านหน้าสุด */
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay on top of other content */
+    z-index: 1; /* Frontmost */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* เปิดใช้งาน scroll ถ้าเนื้อหาใหญ่เกิน */
-    background-color: rgba(0, 0, 0, 0.4); /* พื้นหลังทึบแสงเล็กน้อย */
+    overflow: auto; /* Enable scroll if content is too large */
+    background-color: rgba(0, 0, 0, 0.4); /* Slightly opaque background */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -251,7 +263,7 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     min-height: 120px;
-    resize: vertical; /* อนุญาตให้ผู้ใช้ปรับขนาดตามแนวตั้ง */
+    resize: vertical; /* Allow vertical resizing by user */
     font-size: 1rem;
 }
 
